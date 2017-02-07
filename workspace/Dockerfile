@@ -4,15 +4,13 @@
 #--------------------------------------------------------------------------
 #
 # To edit the 'workspace' base Image, visit its repository on Github
-#    https://github.com/LaraDock/workspace
+#    https://github.com/ttmama/workspace-swoole
 #
-# To change its version, see the available Tags on the Docker Hub:
-#    https://hub.docker.com/r/laradock/workspace/tags/
 #
 
-FROM laradock/workspace:1.3
+FROM registry.cn-beijing.aliyuncs.com/ttmama/laradock-workspace-swoole:7.1.1
 
-MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
+MAINTAINER zhipeng liu
 
 #
 #--------------------------------------------------------------------------
