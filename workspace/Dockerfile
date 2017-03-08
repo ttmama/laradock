@@ -124,6 +124,13 @@ RUN pecl install zip && \
     docker-php-ext-enable zip 
 
 #####################################
+# PHP REDIS EXTENSION FOR PHP 7.0
+#####################################
+RUN  pecl install -o -f redis \
+    &&  rm -rf /tmp/pear \
+    &&  docker-php-ext-enable redis	
+
+#####################################
 # PHP Memcached:
 #####################################
 
