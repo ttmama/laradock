@@ -120,14 +120,15 @@ COPY ./xdebug.ini /etc/php/7.0/cli/conf.d/xdebug.ini
 # ZipArchive:
 #####################################
 
-RUN pecl install zip && \
+RUN pecl install zip-1.13.5 && \
     docker-php-ext-enable zip 
 
 #####################################
 # PHP REDIS EXTENSION FOR PHP 7.0
 #####################################
+USER root
 RUN  pecl install -o -f redis \
-    &&  rm -rf /tmp/pear \
+    #&&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis	
 
 #####################################
@@ -237,8 +238,8 @@ RUN if [ ${INSTALL_DEPLOYER} = true ]; then \
 
 # Clean up
 USER root
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean #&& \
+   # rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set default work directory
 WORKDIR /var/www
